@@ -1,0 +1,70 @@
+<hello name="{{ name }}"></hello>
+<p>
+  Start editing to see some magic happen :)
+</p>
+<h2>Todays Currency Rate</h2>
+
+<table>
+  <tr>
+    <th>Country</th>
+    <th>Currency</th>
+    <th>Today's Rate</th>
+  </tr>
+  <tr *ngFor="let c of Curr">
+    <td>{{c.Country}}</td>
+    <td>{{c.CurrencyName}}</td>
+    <td>{{c.Rate}}</td>
+  </tr>
+</table>
+
+
+<h2>Insert Currency for Todays Date</h2>
+<form [formGroup]="currencyForm" (ngSubmit)="onFormSubmit()">
+<table>
+  <tr>
+  <td>CurrencyId</td>
+  <td><select formControlName="Id">
+    <option value="1">IND</option>
+    <option value="2">USA</option>
+    <option value="3">EURO</option>
+    <option value="4">DINAR</option>
+    <option value="5">POUND</option>
+
+</select></td>
+</tr>
+<tr>
+<td>Rate</td>
+<td><input type="number" formControlName="Rate"></td>
+</tr>
+  
+  <td>
+    <button>Submit</button>
+  </td>
+</table>
+
+</form>
+
+
+<h2>Currency Convert</h2>
+<table>
+  <tr >
+  <td>SelectCurrency</td>
+  <td >
+      <select #c>
+        <option *ngFor = "let c of Curr" [value]="c.Rate">{{c.CurrencyName}}</option>
+      </select>
+  </td>
+  </tr>
+  <tr>
+    <td>Indian Amount </td>
+    <td> <input type="number" #c1> </td>
+  </tr>
+  <tr>
+    <td>
+      <button (click)="Convert(c.value,c1.value)">Convert</button>
+    </td>
+   
+  </tr>
+
+</table>
+<p>{{c.value * c1.value}}</p>
