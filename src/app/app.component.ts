@@ -11,7 +11,7 @@ export class AppComponent  {
   name = 'Angular';
   public Curr = [];
   currencyForm:FormGroup;
-
+  showmessage:boolean=false;
  
   
   constructor(private formBuilder:FormBuilder, private _service:CurrencyService){
@@ -21,7 +21,7 @@ export class AppComponent  {
     let insert = this.currencyForm.value;
     this.createCurr(insert);
     this.currencyForm.reset();
-
+    this.showmessage=true;
     
   }
   datasave=true;

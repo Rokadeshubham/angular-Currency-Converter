@@ -18,7 +18,7 @@
 
 <h2>Insert Currency for Todays Date</h2>
 <form [formGroup]="currencyForm" (ngSubmit)="onFormSubmit()">
-
+  <h4 *ngIf="showmessage" class="text-success">Data Inserted successfully</h4>
 <table>
   <tr>
   <td>CurrencyId</td>
@@ -44,7 +44,6 @@
 </table>
 
 </form>
-
 
 
 <h2>Currency Convert</h2>
