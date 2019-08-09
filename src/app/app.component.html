@@ -69,3 +69,42 @@
 
 </table>
 <p>{{c.value * c1.value}}</p>
+
+
+<h2>Check for Other Rates Also</h2>
+
+<table>
+  <tr>
+    <td>
+      Select Amount
+    </td>
+    <select #amount class="form-control">
+      <option value="10">10</option>
+      <option value="100">100</option>
+      <option value="1000">1000</option>
+      <option value="10000">10000</option>
+      <option value="100000">1000</option>
+      <option value="1000000">10000</option>
+
+    </select>
+  </tr>
+  <tr >
+  <td>SelectCurrencyType</td>
+  <td >
+      <select #c class="form-control">
+        <option *ngFor = "let c of Curr" [value]="c.Rate">{{c.CurrencyName}}</option>
+      </select>
+  </td>
+  </tr>
+
+  <tr >
+  <td>ConvertToWhichCurrency</td>
+  <td >
+      <select #cc class="form-control">
+        <option *ngFor = "let c of Curr" [value]="c.Rate">{{c.CurrencyName}}</option>
+      </select>
+  </td>
+  </tr>
+  <button (click)="ConvertTo(amount.value,cc.value)">Convert</button>
+  <h3>{{amount.value/cc.value}}</h3>
+</table>
